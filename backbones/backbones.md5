@@ -1,0 +1,17 @@
+95eebb8fb8816f0fb0762d04e3139e12  cifarfs_resnet101.pth.tar
+11bb6c73cd577ee40a1a9f613dde3631  cifarfs_resnet10.pth.tar
+743a0aecfed055339e1239c105876492  cifarfs_resnet18.pth.tar
+0f81ff93791a571fc39af204d0b80e3e  cifarfs_resnet34.pth.tar
+e9bd9d14ab8b5fd509555fb342428a0b  cifarfs_resnet50.pth.tar
+7ce33677aa1a1c90794cd49e822b90f8  miniimagenet_resnet101.pth.tar
+eae5af3d19f7acb69dca5cd1a31e8511  miniimagenet_resnet10.pth.tar
+2706ff2dcbb8fbb13c2b1eeb892791e5  miniimagenet_resnet18.pth.tar
+ee772d26797caaebeddaafad9bce7b53  miniimagenet_resnet34.pth.tar
+34e7b797f5bfb82c277885e9f49639a7  miniimagenet_resnet50.pth.tar
+456364a243ef6302597fe5267cab4ec9  tieredimagenet_densenet121.pth.tar
+80328286ba60ea899aebc23f412d222e  tieredimagenet_mobilenet84.pth.tar
+07ee4876a8853e3e724a9f8ce0c874e3  tieredimagenet_resnet101.pth.tar
+46e5a3b98a617b4ac9fb5440335f2446  tieredimagenet_resnet10.pth.tar
+0ef4609adb99c166e16c39bbe0cbec3d  tieredimagenet_resnet18.pth.tar
+a1dd94affed05d72f045a4b05b8b3c3b  tieredimagenet_resnet34.pth.tar
+591702387ae7389b1ceb7d5c26682acf  tieredimagenet_resnet50.pth.tar

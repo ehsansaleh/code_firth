@@ -1,0 +1,64 @@
+# General Stuff
+*.ipynb_checkpoints*
+**__pycache**
+*.idea*
+
+# Project Specific Stuff
+data/cifar100/cifar-100-python/*
+data/cifar100/cifar-100-python.tar.gz
+data/miniimagenet/processed_data/*.pt
+data/miniimagenet/raw_data/*.pkl
+data/miniimagenet/raw_data/*.tar.gz
+data/miniimagenet/raw_data/*.tgz
+data/
+models/**/*.tar
+
+features/*.tar
+features/*.pth
+datasets/**/*.tar
+datasets/**/*.pth
+datasets/**/*.pkl
+datasets/cifarfs/*/
+datasets/tieredimagenet
+datasets/*.json
+backbones/*.pth.tar
+backbones/*.tar
+
+joblogs/*
+configs/**/*_part*.json
+configs/*scratch*.json
+results/
+results/*scratch*.csv
+venv
+trash
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Atom files
+*.ftpconfig

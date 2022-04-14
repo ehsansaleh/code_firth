@@ -1,103 +1,20 @@
-# Firth Bias Reduction in Few-shot Classification Repository
-This repository contains the core experiments conducted in the [On the Importance of Firth Bias Reduction in Few-Shot Classification](https://openreview.net/pdf?id=DNRADop4ksB) paper.
+# Firth Bias Reduction with Standard Feature Backbones
+This repository contains the core experiments with the standard ResNet feature backbones conducted in our paper ["On the Importance of Firth Bias Reduction in Few-Shot Classification"](https://openreview.net/pdf?id=DNRADop4ksB). This is one of the three code repositories of our paper, and is a sub-module of the the main ["Firth Bias Reduction in Few-Shot Learning" repository](https://github.com/ehsansaleh/firth_bias_reduction). 
 
-<details open>
-<summary><h2>The Paper in Pictures</h2></summary>
+Here is the effect of Firth bias reduction campared to typical L2 regularization in 16-way few-shot classification tasks using basic feature backbones and 1-layer logistic classifiers.
 
-  + <details open>
-    <summary><strong>The MLE Bias in Few-shot Classification</strong></summary>
-  
-    Here is a visualization to help you get the overall context of typical loss minimization (MLE) bias with only a few samples.
+<img src="./opt/static_figures/dacc_vs_nshots_firth_1layer_mini.svg" alt="drawing" width="48%"/> <img src="./opt/static_figures/dacc_vs_nshots_l2_1layer_mini.svg" alt="drawing" width="46%"/>
 
-    <img src="./opt/static_figures/mlebiasslide.svg" alt="drawing" width="96%"/>
+Similar results can also be achieved using 3-layer logistic classifiers:
 
-    </details>
-  
-  + <details>
-    <summary><strong>Firth Bias Reduction in Few Words</strong></summary>
-   
-    + <details open>
-      <summary><strong>For 1-Layer Logistic and Cosine Classifiers with the Cross-Entropy Loss</strong></summary>
-
-      All you need to do, is replace
-      
-      <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\hat{\beta} = \text{argmin}_{\beta} \quad \frac{1}{N}\sum_{i=1}^{N} \bigg[\text{CE}(\mathbf{P}_i, \mathbf{y}_i)\bigg]" width="35%"></p>
-      
-      with
-  
-      <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\hat{\beta}_{\text{Firth}} = \text{argmin}_{\beta} \quad \frac{1}{N}\sum_{i=1}^{N} \bigg[\text{CE}(\mathbf{P}_i, \mathbf{y}_i) %2B \lambda \cdot \text{CE}(\mathbf{P}_i,\mathbf{U}) \bigg]" width="50%"></p>
-     
-      where U is the uniform distribution over the classes, and lambda is a positive constant. The CE-term with the uniform distribution is basically the sum of the prediction log-probability values over all data points and classes. 
-    
-      </details>
-  
-    + <details>
-      <summary><strong>General Firth Bias Reduction Form</strong></summary>
-  
-      Add a log-det of FIM term to your loss minimization problem. That is, replace
-      
-      <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\hat{\beta} = \text{argmin}_{\beta} \quad \bigg[l(\beta)\bigg]" width="20%"  align="center"></p>
-      
-      with 
-      
-      <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\hat{\beta}_{\text{Firth}} = \text{argmin}_{\beta} \quad \bigg[l(\beta) %2B \lambda\cdot \log(\det(F))\bigg]" width="40%" align="center"></p>,
-      
-      This was proven to reduce the bias of your estimated parameters.
-      </details>
-    
-    </details>
-  
-  
-      
-
-  + <details>
-    <summary><strong>Firth Bias Reduction in a Geometric Experiment</strong></summary>
-  
-    Here is a simple example show-casing average the MLE's bias from the true parameters in a geometric experiment with a fair coin, and the slow rate at which this bias disappears.
-
-    <img src="./opt/static_figures/avgmle_vs_nsamples_geom.svg" alt="drawing" width="46.5%"/> <img src="./opt/static_figures/logmlebias_vs_lognsamples_geom.svg" alt="drawing" width="47.5%"/>
-
-    </details>
-
-  + <details>
-    <summary><strong>Firth Bias Reduction Improvements in Few-shot Classification Tasks</strong></summary>
-  
-    Here is the effect of Firth bias reduction campared to typical L2 regularization in 16-way few-shot classification tasks using basic feature backbones and 3-layer logistic classifiers.
-
-    <img src="./opt/static_figures/dacc_vs_nshots_firth_3layer_mini.svg" alt="drawing" width="48%"/> <img src="./opt/static_figures/dacc_vs_nshots_l2_3layer_mini.svg" alt="drawing" width="46%"/>
-
-    </details>
-
-</details>
-
-<details>
-<summary><h2>Nice Code Features</h2></summary>
-
-  We tried to structure the code as **user-friendly** as possible. Following features are worth considerations:
-  1. **GPU Acceleration**: Even the 1-layer classifier trainings are batched along the RNG seed dimension, and are accelerated to run on GPUs.
-  2. **Reproducibility and Random Effects Matching**: All the randomization effects (such as the batch ordering, the parameter initializations, etc.) are controlled through rigorous seeding of the random generators. The results are tested to be deterministically reproducible (i.e., running the same code 10 times will give you the same exact result every time). This can be useful if you want to make a slight algorithmic change, and observe the difference; all the randomized effects will be matched between the two runs.
-  3. **De-coupled Configurations from the Code**: You don't need to specify long lines of `argparse` argument specifications in a bash file. Instead, just take a quick look at [`./configs/01_firth_1layer/firth_1layer.json`](./configs/01_firth_1layer/firth_1layer.json) for an example. The running settings are specified in `json` files in the `configs` directory. You won't need to personally keep track of the arguments you passed to generate different results, since the settings will be permanently stored in the `configs` directory.
-  4. **Code Quality**: We have used and tested this code rigirously in our work. There is even code to compute the maximum number of seeds in one batch when running each setting to avoid cuda out-of-memory errors. All this is being done automatically behind the scenes.
-  4. **Data Inclusion**: All the data needed to produce the figures and tables, including  
-     1. the extracted features,
-     2. the feature backbone parameters,
-     3. the datasets,
-     4. the experimental results and data,
-     5. the generated figures and tables, etc.
-
-      are either included in the repository themselves, or a google-drive link to them with automated downloading scripts is included.
-  5. **Download Automation**: Downloading heavy feature files, datasets, or backbone parameters manually, and then transferring them to a cluster storage can be difficult and time-consuming. To alleviate this, we included automated downloading scripts for each of these elements. Just take a look at [`./features/download.sh`](./features/download.sh); all the google drive links are included, a script will download them for you, and verify their correctness using the md5 checksums included in the repo. These scripts were tested multiple times at the time of writing, and if a breaking update happens to the google-drive api in the future, we will modify the download code to fix the issue as soon as you let us know!
-  6. **Python Environment Specification**: Not only we provide our exact python library dependencies and versions in the [`requirements.txt`](./requirements.txt) file, we also offer some automated helper scripts to create virtual environments. If you'd rather run your code in an environment of your choosing, that is totally fine as well.
-
-  Just give this code a try; it won't take much of your time to set up. You may even find it a good starting point for your own FSL projects :)
-</details>
+<img src="./opt/static_figures/dacc_vs_nshots_firth_3layer_mini.svg" alt="drawing" width="48%"/> <img src="./opt/static_figures/dacc_vs_nshots_l2_3layer_mini.svg" alt="drawing" width="46%"/>
 
 <details>
 <summary><h2>Quick Q&A Rounds</h2></summary>
 
 1. **Question**: Give me a quick-starter code to start reproducing the paper trainings on a GPU?
    ```bash
-   git clone https://github.com/ehsansaleh/firth_bias_reduction.git
+   git clone --recursive https://github.com/ehsansaleh/firth_bias_reduction.git
    cd ./firth_bias_reduction/code_firth
    ./features/download.sh
    ./main.sh
@@ -205,8 +122,19 @@ This repository contains the core experiments conducted in the [On the Importanc
 +  <details>
    <summary><strong>Cloning the Repo</strong></summary>
 
-   1. `git clone https://github.com/ehsansaleh/firth_bias_reduction.git`
-   2. `cd ./firth_bias_reduction/code_firth`
+   +  <details open>
+      <summary><strong>[Option 1] Cloning All Three Repositories of Our Paper</strong></summary>
+ 
+      1. `git clone --recursive https://github.com/ehsansaleh/firth_bias_reduction.git`
+      2. `cd firth_bias_reduction/code_firth`
+      </details>
+ 
+   +  <details>
+      <summary><strong>[Option 2] Cloning This Repository Alone</strong></summary>
+ 
+      1. `git clone https://github.com/ehsansaleh/code_firth.git`
+      2. `cd code_firth`
+      </details>
 
    </details>
    
@@ -555,7 +483,29 @@ This repository contains the core experiments conducted in the [On the Importanc
   </details>
   
 </details>
-   
+
+<details>
+<summary><h2>Nice Code Features</h2></summary>
+
+  We tried to structure the code as **user-friendly** as possible. Following features are worth considerations:
+  1. **GPU Acceleration**: Even the 1-layer classifier trainings are batched along the RNG seed dimension, and are accelerated to run on GPUs.
+  2. **Reproducibility and Random Effects Matching**: All the randomization effects (such as the batch ordering, the parameter initializations, etc.) are controlled through rigorous seeding of the random generators. The results are tested to be deterministically reproducible (i.e., running the same code 10 times will give you the same exact result every time). This can be useful if you want to make a slight algorithmic change, and observe the difference; all the randomized effects will be matched between the two runs.
+  3. **De-coupled Configurations from the Code**: You don't need to specify long lines of `argparse` argument specifications in a bash file. Instead, just take a quick look at [`./configs/01_firth_1layer/firth_1layer.json`](./configs/01_firth_1layer/firth_1layer.json) for an example. The running settings are specified in `json` files in the `configs` directory. You won't need to personally keep track of the arguments you passed to generate different results, since the settings will be permanently stored in the `configs` directory.
+  4. **Code Quality**: We have used and tested this code rigirously in our work. There is even code to compute the maximum number of seeds in one batch when running each setting to avoid cuda out-of-memory errors. All this is being done automatically behind the scenes.
+  4. **Data Inclusion**: All the data needed to produce the figures and tables, including  
+     1. the extracted features,
+     2. the feature backbone parameters,
+     3. the datasets,
+     4. the experimental results and data,
+     5. the generated figures and tables, etc.
+
+      are either included in the repository themselves, or a google-drive link to them with automated downloading scripts is included.
+  5. **Download Automation**: Downloading heavy feature files, datasets, or backbone parameters manually, and then transferring them to a cluster storage can be difficult and time-consuming. To alleviate this, we included automated downloading scripts for each of these elements. Just take a look at [`./features/download.sh`](./features/download.sh); all the google drive links are included, a script will download them for you, and verify their correctness using the md5 checksums included in the repo. These scripts were tested multiple times at the time of writing, and if a breaking update happens to the google-drive api in the future, we will modify the download code to fix the issue as soon as you let us know!
+  6. **Python Environment Specification**: Not only we provide our exact python library dependencies and versions in the [`requirements.txt`](./requirements.txt) file, we also offer some automated helper scripts to create virtual environments. If you'd rather run your code in an environment of your choosing, that is totally fine as well.
+
+  Just give this code a try; it won't take much of your time to set up. You may even find it a good starting point for your own FSL projects :)
+</details>
+
 ## References
 * Here is the arxiv link to our paper:
   * The arxiv PDF link: [https://arxiv.org/pdf/2110.02529.pdf](https://arxiv.org/pdf/2110.02529.pdf)

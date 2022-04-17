@@ -463,7 +463,9 @@ Similar results can also be achieved using 3-layer logistic classifiers:
      FILENAME="miniimagenet_novel.tar"
      GDRIVEURL="https://drive.google.com/file/d/1cf57AsY3IHxlDGEvB4RemDrbtU92aSM0/view?usp=sharing"
      PTHMD5FILE="miniimagenet_novel.md5"
-     gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+     RMAFTERDL="1"
+     ISSMALL="0"
+     gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
      ```
      This means that you can manually
      1. download the file from [`https://drive.google.com/file/d/1cf57AsY3IHxlDGEvB4RemDrbtU92aSM0/view?usp=sharing`](https://drive.google.com/file/d/1cf57AsY3IHxlDGEvB4RemDrbtU92aSM0/view?usp=sharing),

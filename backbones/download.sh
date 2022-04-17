@@ -17,4 +17,6 @@ FILEID="1LPxN-S2BquVc8mojkhZYIkZAWgj9uCd0"
 FILENAME="backbones.tar"
 GDRIVEURL="https://drive.google.com/file/d/1LPxN-S2BquVc8mojkhZYIkZAWgj9uCd0/view?usp=sharing"
 PTHMD5FILE="backbones.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}

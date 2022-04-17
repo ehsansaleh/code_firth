@@ -19,7 +19,9 @@ FILEID="1FYqRTetn2Gh0G4REbHbUKV372Qc-OY9X"
 FILENAME="miniimagenet.tar"
 GDRIVEURL="https://drive.google.com/file/d/1FYqRTetn2Gh0G4REbHbUKV372Qc-OY9X/view?usp=sharing"
 PTHMD5FILE="miniimagenet.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 cd ..
 echo "========================================================================="
 
@@ -29,7 +31,9 @@ FILEID="13OuOM3nflvISHt_WUjvWGbVUkI7sATCP"
 FILENAME="cifarfs.tar"
 GDRIVEURL="https://drive.google.com/file/d/13OuOM3nflvISHt_WUjvWGbVUkI7sATCP/view?usp=sharing"
 PTHMD5FILE="cifarfs.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 cd ..
 echo "========================================================================="
 
@@ -38,5 +42,7 @@ FILEID="1LLPjeKzEzLYnytMzAPSuLbKHnc7-EBqS"
 FILENAME="orders.tar"
 GDRIVEURL="https://drive.google.com/file/d/1LLPjeKzEzLYnytMzAPSuLbKHnc7-EBqS/view?usp=sharing"
 PTHMD5FILE="orders.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 echo "========================================================================="

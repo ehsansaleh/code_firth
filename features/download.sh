@@ -17,38 +17,50 @@ FILEID="1cf57AsY3IHxlDGEvB4RemDrbtU92aSM0"
 FILENAME="miniimagenet_novel.tar"
 GDRIVEURL="https://drive.google.com/file/d/1cf57AsY3IHxlDGEvB4RemDrbtU92aSM0/view?usp=sharing"
 PTHMD5FILE="miniimagenet_novel.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 
 FILEID="1wCoEyGoU4mFu0h8RaEB1FpWpMWjUbd1u"
 FILENAME="miniimagenet_val.tar"
 GDRIVEURL="https://drive.google.com/file/d/1wCoEyGoU4mFu0h8RaEB1FpWpMWjUbd1u/view?usp=sharing"
 PTHMD5FILE="miniimagenet_val.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 
 
 FILEID="162hsEHUtvpS0-kX8MJXGFXYATWS4NXnS"
 FILENAME="cifarfs_novel.tar"
 GDRIVEURL="https://drive.google.com/file/d/162hsEHUtvpS0-kX8MJXGFXYATWS4NXnS/view?usp=sharing"
 PTHMD5FILE="cifarfs_novel.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 
 FILEID="1UyqkgV-1ATDutTc8DS6FzfGU9RLGRx3d"
 FILENAME="cifarfs_val.tar"
 GDRIVEURL="https://drive.google.com/file/d/1UyqkgV-1ATDutTc8DS6FzfGU9RLGRx3d/view?usp=sharing"
 PTHMD5FILE="cifarfs_val.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 
 FILEID="1ULphDbXW-zXZcK0-Hzcu8Q_uKynRnzcZ"
 FILENAME="tieredimagenet_novel.tar"
 GDRIVEURL="https://drive.google.com/file/d/1ULphDbXW-zXZcK0-Hzcu8Q_uKynRnzcZ/view?usp=sharing"
 PTHMD5FILE="tieredimagenet_novel.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 
 FILEID="1L3KQvV7IDdaAFWLl6vuVzQC2Ym_yvdeT"
 FILENAME="tieredimagenet_val.tar"
 GDRIVEURL="https://drive.google.com/file/d/1L3KQvV7IDdaAFWLl6vuVzQC2Ym_yvdeT/view?usp=sharing"
 PTHMD5FILE="tieredimagenet_val.md5"
-gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+RMAFTERDL="1"
+ISSMALL="0"
+gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 
 # The following are base features, which are optional.
 if [[ $1 == "base" ]]; then
@@ -56,18 +68,24 @@ if [[ $1 == "base" ]]; then
   FILENAME="miniimagenet_base.tar"
   GDRIVEURL="https://drive.google.com/file/d/1BGSICHLI3FI3zrGptHpJQKF1QBdu0fIp/view?usp=sharing"
   PTHMD5FILE="miniimagenet_base.md5"
-  gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+  RMAFTERDL="1"
+  ISSMALL="0"
+  gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 
   FILEID="1yeELkq_oLf3_AnwW9Kv8qv_U51IKBCl3"
   FILENAME="cifarfs_base.tar"
   GDRIVEURL="https://drive.google.com/file/d/1yeELkq_oLf3_AnwW9Kv8qv_U51IKBCl3/view?usp=sharing"
   PTHMD5FILE="cifarfs_base.md5"
-  gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+  RMAFTERDL="1"
+  ISSMALL="0"
+  gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 
   FILEID="1MnctphdBzoZzrzhsCIBf40bfOmaXIUf0"
   FILENAME="tieredimagenet_base.tar"
   GDRIVEURL="https://drive.google.com/file/d/1MnctphdBzoZzrzhsCIBf40bfOmaXIUf0/view?usp=sharing"
   PTHMD5FILE="tieredimagenet_base.md5"
-  gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE}
+  RMAFTERDL="1"
+  ISSMALL="0"
+  gdluntar ${FILEID} ${FILENAME} ${GDRIVEURL} ${PTHMD5FILE} ${RMAFTERDL} ${ISSMALL}
 fi
 

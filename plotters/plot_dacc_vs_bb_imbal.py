@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from pathlib import Path
-from utils.cfg import smry_tbls_dir
+from utils.cfg import smry_tbls_dir, fig_format, draw_trnsprnt_figs
 from utils.cfg import main_acc, paper_plots_dir, scale_percent
 from utils.plot_utils import plot_stat_combined
 
@@ -69,6 +69,6 @@ for clf_type in ["mlp", 'lin']:
             dpi = save_dict.get('dpi', 300)
             os.makedirs(save_dir, exist_ok=True)
             fig.tight_layout()
-            save_path = f'{save_dir}/{figname}.pdf'
-            fig.savefig(save_path, bbox_inches='tight', pad_inches=0, dpi=dpi)
+            save_path = f'{save_dir}/{figname}.{fig_format}'
+            fig.savefig(save_path, bbox_inches='tight', pad_inches=0, dpi=dpi, transparent=draw_trnsprnt_figs)
             print(f'  *   --> Figure saved at {save_path}.\n  ' + '-'*80)

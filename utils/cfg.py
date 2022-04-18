@@ -11,6 +11,8 @@ PROJPATH = f'{dirname(dirname(__file__))}'
 smry_tbls_dir = f'{PROJPATH}/summary'
 paper_plots_dir = f'{PROJPATH}/figures'
 paper_tbls_dir = f'{PROJPATH}/tables'
+fig_format = "pdf"
+draw_trnsprnt_figs = False
 
 ####################################################
 ############### csv2summ configs ###################

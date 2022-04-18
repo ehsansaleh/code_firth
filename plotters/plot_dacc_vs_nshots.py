@@ -128,6 +128,6 @@ for (experiment, dataset_name, n_ways), df_exp in df_summ.groupby(['experiment',
             dpi = save_dict.get('dpi', 300)
             os.makedirs(save_dir, exist_ok=True)
             fig.tight_layout()
-            save_path = f'{save_dir}/{figname}.pdf'
-            fig.savefig(save_path, bbox_inches='tight', pad_inches=0, dpi=dpi)
+            save_path = f'{save_dir}/{figname}.svg'
+            fig.savefig(save_path, bbox_inches='tight', pad_inches=0, dpi=dpi, transparent=True)
             print(f'  *   --> Figure saved at {save_path}.\n  ' + '-'*80)

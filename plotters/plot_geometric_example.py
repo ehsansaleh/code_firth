@@ -4,11 +4,11 @@ import numpy as np
 from collections import defaultdict
 from numpy.random import default_rng
 import matplotlib.pyplot as plt
-from utils.cfg import paper_plots_dir
+from utils.cfg import paper_plots_dir, fig_format, draw_trnsprnt_figs
 
 print(f"  * Plotting the geometric experiment's MLE bias reduction figures.")
-fig1_path = f"{paper_plots_dir}/avgmle_vs_nsamples_geom.pdf"
-fig2_path = f"{paper_plots_dir}/logmlebias_vs_lognsamples_geom.pdf"
+fig1_path = f"{paper_plots_dir}/avgmle_vs_nsamples_geom.{fig_format}"
+fig2_path = f"{paper_plots_dir}/logmlebias_vs_lognsamples_geom.{fig_format}"
 
 if os.path.exists(fig1_path) and os.path.exists(fig2_path):
     print(f'    --> Figures {fig1_path} already exists.')
@@ -115,7 +115,8 @@ ax.annotate(r'$E[\hat{\beta}_{Firth}]$', xy=(2.0, 0.50), xytext=(2.8, 0.525),
 
 ticks = ax.get_xticks()
 ax.set_xticks(list(range(1, 11)))
-fig.savefig(fig1_path, bbox_inches='tight', pad_inches=0, dpi=200)
+fig.savefig(fig1_path, bbox_inches='tight', pad_inches=0, 
+            dpi=200, transparent=draw_trnsprnt_figs)
 print(f'  *   --> Figure saved at {fig1_path}.')
 
 # The log-log plot of MLE bias vs the sample-size
@@ -148,5 +149,6 @@ ax.annotate(str_, xy=(0.5, -1.10), xytext=(0.9, -.9),
 ax.scatter(x, y, color='purple', marker='o', s=15)
 ax.plot(x, -x-0.6, color='black', lw=1.0, ls='--', zorder=0)
 
-fig.savefig(fig2_path, bbox_inches='tight', pad_inches=0, dpi=200)
+fig.savefig(fig2_path, bbox_inches='tight', pad_inches=0, dpi=200, 
+            transparent=draw_trnsprnt_figs)
 print(f'  *   --> Figure saved at {fig2_path}.\n  ' + '-'*80)

@@ -4,7 +4,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
-from utils.cfg import PROJPATH, paper_plots_dir
+from utils.cfg import PROJPATH, paper_plots_dir, fig_format, draw_trnsprnt_figs
 
 pd.options.mode.chained_assignment = None
 reg_column = 'firth_coeff'
@@ -17,7 +17,7 @@ assert reg_column in ['l2_coeff', 'firth_coeff'], "invalid regularization column
 for (indir, nlayer) in [(f'{PROJPATH}/results/04_firth_3layer', 3),
                         (f'{PROJPATH}/results/01_firth_1layer', 1)]:
     print(f'  * Plotting the validation accuracy vs. the firth coefficient for {nlayer}-layer classifiers.')
-    figpath = f'{paper_plots_dir}/valacc_vs_lambda_{nlayer}layer.pdf'
+    figpath = f'{paper_plots_dir}/valacc_vs_lambda_{nlayer}layer.{fig_format}'
     if os.path.exists(figpath):
         print(f'    --> Figure {os.path.basename(figpath)} already exists.\n  ' + '-'*80)
         continue
@@ -88,5 +88,5 @@ for (indir, nlayer) in [(f'{PROJPATH}/results/04_firth_3layer', 3),
         fig.suptitle(f'{nlayer}-Layer Logistic Classifier')
 
     if save_figs:
-        fig.savefig(figpath, dpi=300, bbox_inches='tight')
+        fig.savefig(figpath, dpi=300, bbox_inches='tight', transparent=draw_trnsprnt_figs)
         print(f'  *   --> Figure saved at {figpath}.\n  ' + '-'*80)

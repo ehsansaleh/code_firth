@@ -1,6 +1,8 @@
 # Firth Bias Reduction with Standard Feature Backbones
 This repository contains the core experiments with the standard ResNet feature backbones conducted in our paper ["On the Importance of Firth Bias Reduction in Few-Shot Classification"](https://openreview.net/pdf?id=DNRADop4ksB). This is one of the three code repositories of our paper, and is a sub-module of the the main ["Firth Bias Reduction in Few-Shot Learning" repository](https://github.com/ehsansaleh/firth_bias_reduction). 
 
+For a concise and informal description of our work, check out our paper's website: [https://ehsansaleh.github.io/firthfsl](https://ehsansaleh.github.io/firthfsl)
+
 Here is the effect of Firth bias reduction campared to typical L2 regularization in 16-way few-shot classification tasks using basic feature backbones and 1-layer logistic classifiers.
 
 <img src="./opt/static_figures/dacc_vs_nshots_firth_1layer_mini.svg" alt="drawing" width="48%"/> <img src="./opt/static_figures/dacc_vs_nshots_l2_1layer_mini.svg" alt="drawing" width="46%"/>
@@ -60,7 +62,7 @@ Similar results can also be achieved using 3-layer logistic classifiers:
    ce_term = ce_loss(logits, target)
   
    log_probs = logits - torch.logsumexp(logits, dim=-1, keepdim=True)
-   firth_term = log_probs.mean()
+   firth_term = -log_probs.mean()
   
    loss = ce_term + lam * firth_term
    loss.backward()
@@ -517,6 +519,7 @@ Similar results can also be achieved using 3-layer logistic classifiers:
   * The open-review forum link: [https://openreview.net/forum?id=DNRADop4ksB](https://openreview.net/forum?id=DNRADop4ksB)
 * Our paper got a spot-light presentation at ICLR 2022.
   * We will update here with links to the presentation video and the web-page on `iclr.cc`.
+* Here is a web-page for our paper: [https://ehsansaleh.github.io/firthfsl](https://ehsansaleh.github.io/firthfsl)
 * Here is the bibtex citation entry for our work:
 ```
 @inproceedings{ghaffari2022fslfirth,
